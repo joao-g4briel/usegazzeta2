@@ -25,10 +25,28 @@ const allura = Allura({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? process.env.NEXTAUTH_URL ?? "http://localhost:3000";
+// `||` (e não `??`): na Vercel a variável pode existir vazia, e `new URL("")` derruba o build.
+function resolveSiteUrl(): URL {
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.NEXTAUTH_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.VERCEL_URL,
+  ];
+  for (const raw of candidates) {
+    const value = raw?.trim();
+    if (!value) continue;
+    try {
+      return new URL(/^https?:\/\//.test(value) ? value : `https://${value}`);
+    } catch {
+      // valor inválido: tenta o próximo
+    }
+  }
+  return new URL("http://localhost:3000");
+}
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: resolveSiteUrl(),
   title: {
     default: "Use Gazzeta — Moda, make & perfume",
     template: "%s · Use Gazzeta",
