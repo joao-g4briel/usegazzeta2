@@ -1,0 +1,757 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-29T13:41:51.556Z",
+  "title": "Design System: Use Gazzeta",
+  "extensions": {
+    "colorMeta": {
+      "sage": {
+        "role": "primary",
+        "displayName": "Shop-Window Sage",
+        "canonical": "oklch(65.6% 0.043 132.6)",
+        "tonalRamp": [
+          "#050F00",
+          "#1C2812",
+          "#37452D",
+          "#54634A",
+          "#76866C",
+          "#9AAB8F",
+          "#C0D1B4",
+          "#E4F5D8"
+        ]
+      },
+      "olive": {
+        "role": "primary",
+        "displayName": "Boutique Olive",
+        "canonical": "oklch(53.2% 0.044 140.4)",
+        "tonalRamp": [
+          "#020F01",
+          "#182915",
+          "#33462F",
+          "#50644D",
+          "#72876E",
+          "#96AC92",
+          "#BCD2B7",
+          "#DFF6DB"
+        ]
+      },
+      "olive-deep": {
+        "role": "primary",
+        "displayName": "Olive After Hours",
+        "canonical": "oklch(45.1% 0.038 140.9)",
+        "tonalRamp": [
+          "#030F02",
+          "#192917",
+          "#354532",
+          "#52634F",
+          "#748671",
+          "#98AB95",
+          "#BED1BA",
+          "#E1F5DD"
+        ]
+      },
+      "sage-light": {
+        "role": "primary",
+        "displayName": "Pressed Sage Leaf",
+        "canonical": "oklch(90.9% 0.021 131.5)",
+        "tonalRamp": [
+          "#080D05",
+          "#20261C",
+          "#3C4237",
+          "#596054",
+          "#7C8376",
+          "#A0A79A",
+          "#C6CEC0",
+          "#EAF2E3"
+        ]
+      },
+      "sage-mist": {
+        "role": "primary",
+        "displayName": "Morning Sage Mist",
+        "canonical": "oklch(95.6% 0.011 128.6)",
+        "tonalRamp": [
+          "#0A0C07",
+          "#22251F",
+          "#3E413B",
+          "#5C5F58",
+          "#7E827A",
+          "#A2A69F",
+          "#C8CCC4",
+          "#ECF0E8"
+        ]
+      },
+      "secondary-ink": {
+        "role": "primary",
+        "displayName": "Sage Ink",
+        "canonical": "oklch(33.1% 0.033 139.8)",
+        "tonalRamp": [
+          "#040E03",
+          "#1C2819",
+          "#374434",
+          "#546251",
+          "#768573",
+          "#9AAA97",
+          "#C0D0BC",
+          "#E4F4E0"
+        ]
+      },
+      "rose": {
+        "role": "secondary",
+        "displayName": "Blush Rosé",
+        "canonical": "oklch(84.2% 0.047 33.2)",
+        "tonalRamp": [
+          "#190402",
+          "#371B15",
+          "#563730",
+          "#76544D",
+          "#9A776E",
+          "#C09B92",
+          "#E7C0B7",
+          "#FFE4DB"
+        ]
+      },
+      "rose-mist": {
+        "role": "secondary",
+        "displayName": "Rosé Powder",
+        "canonical": "oklch(93.6% 0.019 38.1)",
+        "tonalRamp": [
+          "#120806",
+          "#2C211D",
+          "#493D39",
+          "#685A56",
+          "#8B7D78",
+          "#B0A19C",
+          "#D6C7C2",
+          "#FBEBE6"
+        ]
+      },
+      "rose-deep": {
+        "role": "secondary",
+        "displayName": "Terracotta Rosé",
+        "canonical": "oklch(50.7% 0.110 30.8)",
+        "tonalRamp": [
+          "#280000",
+          "#4C0000",
+          "#6E2218",
+          "#914236",
+          "#B96557",
+          "#E18A7A",
+          "#FFB2A3",
+          "#FFD8CA"
+        ]
+      },
+      "gold": {
+        "role": "tertiary",
+        "displayName": "Antique Gold",
+        "canonical": "oklch(71.4% 0.111 81.1)",
+        "tonalRamp": [
+          "#1B0400",
+          "#391C00",
+          "#5A3800",
+          "#7D5500",
+          "#A27822",
+          "#C89D4C",
+          "#F0C373",
+          "#FFE797"
+        ]
+      },
+      "gold-ink": {
+        "role": "tertiary",
+        "displayName": "Gold Leaf Ink",
+        "canonical": "oklch(53.0% 0.093 77.0)",
+        "tonalRamp": [
+          "#1D0200",
+          "#3C1A00",
+          "#5B3700",
+          "#7B5611",
+          "#9F783A",
+          "#C69D5F",
+          "#ECC387",
+          "#FFE8B1"
+        ]
+      },
+      "gold-mist": {
+        "role": "tertiary",
+        "displayName": "Champagne Mist",
+        "canonical": "oklch(94.5% 0.027 85.7)",
+        "tonalRamp": [
+          "#100A01",
+          "#2A2315",
+          "#463F2F",
+          "#645D4D",
+          "#877F6E",
+          "#ACA492",
+          "#D2CAB7",
+          "#F7EEDB"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Creme",
+        "canonical": "oklch(96.5% 0.011 84.6)",
+        "tonalRamp": [
+          "#0D0B06",
+          "#27241E",
+          "#433F39",
+          "#615D56",
+          "#838079",
+          "#A8A49D",
+          "#CECAC2",
+          "#F2EEE6"
+        ]
+      },
+      "offwhite": {
+        "role": "neutral",
+        "displayName": "Off-White Ground",
+        "canonical": "oklch(98.6% 0.006 84.6)",
+        "tonalRamp": [
+          "#0C0B09",
+          "#252421",
+          "#413F3C",
+          "#5F5D5A",
+          "#82807C",
+          "#A6A4A1",
+          "#CCCAC6",
+          "#F0EEEA"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(99.4% 0.006 84.6)",
+        "tonalRamp": [
+          "#0C0B09",
+          "#252421",
+          "#413F3C",
+          "#5F5D5A",
+          "#82807C",
+          "#A6A4A1",
+          "#CCCAC6",
+          "#F0EEEA"
+        ]
+      },
+      "linen": {
+        "role": "neutral",
+        "displayName": "Linen",
+        "canonical": "oklch(94.3% 0.017 79.4)",
+        "tonalRamp": [
+          "#0F0A04",
+          "#28231B",
+          "#443F36",
+          "#635D53",
+          "#867F75",
+          "#AAA499",
+          "#D0CABF",
+          "#F4EDE2"
+        ]
+      },
+      "beige": {
+        "role": "neutral",
+        "displayName": "Bege",
+        "canonical": "oklch(90.3% 0.025 75.3)",
+        "tonalRamp": [
+          "#110902",
+          "#2B2216",
+          "#483E31",
+          "#665C4E",
+          "#897E70",
+          "#AEA394",
+          "#D4C9B9",
+          "#F9EDDC"
+        ]
+      },
+      "fragrance-field": {
+        "role": "neutral",
+        "displayName": "Perfume Bege",
+        "canonical": "oklch(92.3% 0.024 77.5)",
+        "tonalRamp": [
+          "#110A02",
+          "#2B2316",
+          "#473E31",
+          "#655C4E",
+          "#897F70",
+          "#ADA394",
+          "#D4C9B9",
+          "#F8EDDD"
+        ]
+      },
+      "sidebar-creme": {
+        "role": "neutral",
+        "displayName": "Sidebar Creme",
+        "canonical": "oklch(95.4% 0.013 82.4)",
+        "tonalRamp": [
+          "#0E0B06",
+          "#27241D",
+          "#433F38",
+          "#615D55",
+          "#848078",
+          "#A9A49C",
+          "#CFCAC1",
+          "#F3EEE5"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Beige Hairline",
+        "canonical": "oklch(90.6% 0.020 80.1)",
+        "tonalRamp": [
+          "#0F0A03",
+          "#292319",
+          "#453F34",
+          "#635D51",
+          "#867F73",
+          "#ABA497",
+          "#D1C9BD",
+          "#F5EDE0"
+        ]
+      },
+      "input-stroke": {
+        "role": "neutral",
+        "displayName": "Input Stroke",
+        "canonical": "oklch(87.6% 0.023 80.7)",
+        "tonalRamp": [
+          "#100A02",
+          "#2A2317",
+          "#463F32",
+          "#645D4F",
+          "#877F71",
+          "#ACA395",
+          "#D2C9BA",
+          "#F6EDDE"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Boutique Ink",
+        "canonical": "oklch(21.4% 0.006 156.7)",
+        "tonalRamp": [
+          "#090C0A",
+          "#222523",
+          "#3D413E",
+          "#5B5F5C",
+          "#7D817F",
+          "#A2A6A3",
+          "#C7CCC9",
+          "#EBF0ED"
+        ]
+      },
+      "stone-ink": {
+        "role": "neutral",
+        "displayName": "Stone Ink",
+        "canonical": "oklch(49.2% 0.007 137.8)",
+        "tonalRamp": [
+          "#0A0C09",
+          "#222521",
+          "#3E413D",
+          "#5C5F5B",
+          "#7E817D",
+          "#A2A6A1",
+          "#C8CCC7",
+          "#ECF0EB"
+        ]
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "canonical": "oklch(57.6% 0.007 137.8)",
+        "tonalRamp": [
+          "#0A0C09",
+          "#222522",
+          "#3E413D",
+          "#5C5F5B",
+          "#7E817D",
+          "#A2A6A1",
+          "#C8CCC7",
+          "#ECF0EB"
+        ]
+      },
+      "destructive": {
+        "role": "semantic",
+        "displayName": "Destructive Brick",
+        "canonical": "oklch(51.3% 0.140 32.0)",
+        "tonalRamp": [
+          "#2D0000",
+          "#530000",
+          "#791100",
+          "#9D3725",
+          "#C55C48",
+          "#ED826D",
+          "#FFAC98",
+          "#FFD3C0"
+        ]
+      },
+      "chart-grid": {
+        "role": "data",
+        "displayName": "Chart Grid",
+        "canonical": "oklch(93.0% 0.018 81.3)",
+        "tonalRamp": [
+          "#0F0A04",
+          "#28231A",
+          "#453F35",
+          "#635D53",
+          "#867F75",
+          "#AAA498",
+          "#D0CABE",
+          "#F5EEE1"
+        ]
+      },
+      "chart-delivered": {
+        "role": "data",
+        "displayName": "Entregues Green",
+        "canonical": "oklch(54.3% 0.101 150.7)",
+        "tonalRamp": [
+          "#001400",
+          "#003005",
+          "#004E21",
+          "#2A6D3E",
+          "#4F9160",
+          "#74B784",
+          "#9CDDAA",
+          "#C4FFD0"
+        ]
+      },
+      "chart-transit": {
+        "role": "data",
+        "displayName": "Em Transporte Amber",
+        "canonical": "oklch(70.4% 0.130 80.8)",
+        "tonalRamp": [
+          "#1D0200",
+          "#3C1A00",
+          "#5E3600",
+          "#815300",
+          "#A77600",
+          "#CE9B34",
+          "#F6C15F",
+          "#FFE689"
+        ]
+      },
+      "chart-processing": {
+        "role": "data",
+        "displayName": "Processando Violet",
+        "canonical": "oklch(58.3% 0.110 289.4)",
+        "tonalRamp": [
+          "#0E002E",
+          "#251651",
+          "#403275",
+          "#5D5197",
+          "#7F74BE",
+          "#A399E5",
+          "#C8BFFF",
+          "#ECE4FF"
+        ]
+      },
+      "chart-cancelled": {
+        "role": "data",
+        "displayName": "Cancelados Rose",
+        "canonical": "oklch(61.8% 0.135 9.9)",
+        "tonalRamp": [
+          "#290003",
+          "#4D0017",
+          "#731530",
+          "#9A354C",
+          "#C25A6E",
+          "#EB7E91",
+          "#FFA6B7",
+          "#FFCDDC"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Store hero headline only."
+      },
+      "script": {
+        "displayName": "Script",
+        "purpose": "The word \"brilhar\" only, in gold-ink."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Admin page titles, PDV cart title, product page names."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Store section titles and category-card names."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Panel, sheet, empty-state and PDV cart-line titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions, tables, forms."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "Hero subtext."
+      },
+      "numeric": {
+        "displayName": "Numeric",
+        "purpose": "Stat-tile values; tabular."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, nav items, badges."
+      },
+      "cta-caps": {
+        "displayName": "CTA Caps",
+        "purpose": "Uppercase tracked label on primary commerce and counter actions only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-soft",
+        "value": "0 1px 2px rgb(23 26 24 / 0.04), 0 12px 32px -18px rgb(23 26 24 / 0.16)",
+        "purpose": "Whisper: panels, stat tiles, price tags at rest."
+      },
+      {
+        "name": "shadow-lift",
+        "value": "0 2px 4px rgb(23 26 24 / 0.05), 0 22px 44px -22px rgb(23 26 24 / 0.28)",
+        "purpose": "Lift: hover on product and category cards, hero arches, raised PDV tab."
+      },
+      {
+        "name": "olive-seat",
+        "value": "0 14px 30px -16px rgb(74 91 71 / 0.9)",
+        "purpose": "Under the store primary pill CTA."
+      },
+      {
+        "name": "olive-seat-deep",
+        "value": "0 18px 34px -20px rgb(74 91 71 / 0.9)",
+        "purpose": "Under the PDV ESCANEAR PRODUTO button."
+      },
+      {
+        "name": "button-inner-highlight",
+        "value": "inset 0 1px 0 rgb(255 255 255 / 0.12)",
+        "purpose": "Top highlight on the default olive button."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 3px rgb(135 151 124 / 0.4)",
+        "purpose": "Button focus-visible ring; inputs use 50%."
+      }
+    ],
+    "motion": [
+      {
+        "name": "arch-rise",
+        "value": "1.1s cubic-bezier(0.16, 1, 0.3, 1) both; clip-path inset(100% to 0, round 999px 999px 0 0) with translateY(18px to 0)",
+        "purpose": "Hero arches revealing, staggered 0/120/240ms."
+      },
+      {
+        "name": "pop-in",
+        "value": "0.32s cubic-bezier(0.16, 1, 0.3, 1) both; opacity 0 to 1, translateY(8px) to 0, scale(0.98) to 1",
+        "purpose": "Entrance for hero copy and confirmations."
+      },
+      {
+        "name": "scan-line",
+        "value": "2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite; translateY(-38% to 38%)",
+        "purpose": "Scanner viewfinder sweep."
+      },
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Hover lifts on arches and cards (500 to 700ms)."
+      },
+      {
+        "name": "ease-spring",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "purpose": "Hanging price-tag swing, 700ms."
+      },
+      {
+        "name": "state-change",
+        "value": "200ms",
+        "purpose": "Button and control color transitions."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition durations 0.001ms",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "container",
+        "value": "1320px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default olive action across admin, PDV and store forms.",
+      "html": "<button class=\"ds-btn-primary\">Salvar produto</button>",
+      "css": ".ds-btn-primary{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border:1px solid transparent;border-radius:19.6px;background:#5F735B;color:#FCFAF6;font-size:14px;font-weight:600;box-shadow:inset 0 1px 0 rgb(255 255 255/.12);cursor:pointer;transition:background-color .2s,transform .2s}.ds-btn-primary:hover{background:#4A5B47}.ds-btn-primary:active{transform:translateY(1px)}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 3px rgb(135 151 124/.4)}"
+    },
+    {
+      "name": "Soft Button",
+      "kind": "button",
+      "refersTo": "button-soft",
+      "description": "Sage-light secondary action beside an olive primary.",
+      "html": "<button class=\"ds-btn-soft\">Gerar variantes</button>",
+      "css": ".ds-btn-soft{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;height:40px;padding:0 16px;border:1px solid transparent;border-radius:19.6px;background:#DCE4D6;color:#2D3A2A;font-size:14px;font-weight:600;cursor:pointer;transition:background-color .2s}.ds-btn-soft:hover{background:#CFD9C7}.ds-btn-soft:active{transform:translateY(1px)}.ds-btn-soft:focus-visible{outline:none;box-shadow:0 0 0 3px rgb(135 151 124/.4)}"
+    },
+    {
+      "name": "Gold Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Celebratory or add-new action; at most one per screen.",
+      "html": "<button class=\"ds-btn-gold\">Nova venda</button>",
+      "css": ".ds-btn-gold{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;height:48px;padding:0 24px;border:1px solid transparent;border-radius:25.2px;background:#C69B4A;color:#171A18;font-size:15px;font-weight:600;cursor:pointer;transition:background-color .2s}.ds-btn-gold:hover{background:#B98D3F}.ds-btn-gold:active{transform:translateY(1px)}.ds-btn-gold:focus-visible{outline:none;box-shadow:0 0 0 3px rgb(135 151 124/.4)}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Paper button with beige hairline for tertiary actions.",
+      "html": "<button class=\"ds-btn-outline\">Ver todas as novidades</button>",
+      "css": ".ds-btn-outline{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;height:40px;padding:0 16px;border:1px solid #E7DFD2;border-radius:19.6px;background:#FFFDF9;color:#171A18;font-size:14px;font-weight:600;cursor:pointer;transition:background-color .2s,border-color .2s}.ds-btn-outline:hover{background:#F2EBE0;border-color:#D8CEBE}.ds-btn-outline:focus-visible{outline:none;box-shadow:0 0 0 3px rgb(135 151 124/.4)}"
+    },
+    {
+      "name": "Commerce CTA Pill",
+      "kind": "button",
+      "refersTo": "cta-pill",
+      "description": "Uppercase olive pill for the store's primary buying action.",
+      "html": "<a class=\"ds-cta-pill\" href=\"#\">Comprar agora <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-cta-pill{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 32px;border-radius:9999px;background:#5F735B;color:#FCFAF6;font-size:14.7px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;box-shadow:0 14px 30px -16px rgb(74 91 71/.9);transition:background-color .2s}.ds-cta-pill svg{transition:transform .2s}.ds-cta-pill:hover{background:#4A5B47}.ds-cta-pill:hover svg{transform:translateX(4px)}.ds-cta-pill:focus-visible{outline:2px solid #87977C;outline-offset:2px}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Paper field with input stroke, olive caret and sage focus ring.",
+      "html": "<input class=\"ds-input\" placeholder=\"Nome do produto\" />",
+      "css": ".ds-input{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;height:40px;width:280px;padding:4px 12px;border:1px solid #DED5C6;border-radius:19.6px;background:#FFFDF9;color:#171A18;font-size:14px;caret-color:#5F735B;outline:none;transition:border-color .2s,box-shadow .2s}.ds-input::placeholder{color:#5F625E}.ds-input:focus-visible{border-color:#87977C;box-shadow:0 0 0 3px rgb(135 151 124/.5)}"
+    },
+    {
+      "name": "Store Header Band",
+      "kind": "nav",
+      "refersTo": "store-search",
+      "description": "Sage band with light wordmark, paper search pill and round icon buttons.",
+      "html": "<header class=\"ds-band\"><span class=\"ds-wm\"><span class=\"ds-wm-use\">USE</span><span class=\"ds-wm-name\">Gazzeta</span></span><label class=\"ds-search\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input placeholder=\"O que você procura hoje?\" aria-label=\"Buscar produtos\" /></label><button class=\"ds-icon\" aria-label=\"Sacola\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16 10a4 4 0 0 1-8 0\"/><path d=\"M3.103 6.034h17.794\"/><path d=\"M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z\"/></svg></button></header>",
+      "css": ".ds-band{display:flex;align-items:center;gap:32px;height:72px;padding:0 24px;background:#87977C;color:#FCFAF6}.ds-wm{display:inline-flex;align-items:baseline;gap:.45em;line-height:1}.ds-wm-use{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;font-size:12.5px;font-weight:500;letter-spacing:.28em}.ds-wm-name{font-family:var(--font-cormorant,'Cormorant Garamond'),'Times New Roman',serif;font-size:28.8px;font-weight:500;letter-spacing:.09em;text-transform:uppercase}.ds-search{position:relative;flex:1;max-width:576px;display:flex;align-items:center;color:#5F625E}.ds-search svg{position:absolute;left:16px}.ds-search input{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;width:100%;height:44px;padding:0 16px 0 44px;border:1px solid rgb(255 255 255/.7);border-radius:9999px;background:#FFFDF9;color:#171A18;font-size:15px;outline:none}.ds-search input::placeholder{color:#5F625E}.ds-search input:focus-visible{box-shadow:0 0 0 3px rgb(255 255 255/.6)}.ds-icon{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;border-radius:9999px;background:transparent;color:#FCFAF6;cursor:pointer}.ds-icon:hover{background:rgb(255 255 255/.15)}.ds-icon:focus-visible{outline:2px solid #FCFAF6;outline-offset:2px}"
+    },
+    {
+      "name": "Admin Nav Item",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "Creme sidebar links with the sage-light active pill and count bubbles.",
+      "html": "<nav class=\"ds-side\"><a class=\"ds-nav ds-nav-active\" href=\"#\" aria-current=\"page\">Dashboard</a><a class=\"ds-nav\" href=\"#\">Pedidos <span class=\"ds-count\">4</span></a><a class=\"ds-nav\" href=\"#\">Estoque <span class=\"ds-count ds-count-low\">12</span></a></nav>",
+      "css": ".ds-side{display:flex;flex-direction:column;gap:2px;width:224px;padding:12px;background:#F4EFE6}.ds-nav{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;display:flex;align-items:center;justify-content:space-between;height:44px;padding:0 14px;border-radius:19.6px;color:rgb(23 26 24/.85);font-size:14.4px;font-weight:500;text-decoration:none;transition:background-color .2s}.ds-nav:hover{background:#EBE4D8;color:#171A18}.ds-nav:focus-visible{outline:2px solid #87977C;outline-offset:2px}.ds-nav-active,.ds-nav-active:hover{background:#DCE4D6;color:#2D3A2A}.ds-count{min-width:24px;padding:0 6px;border-radius:9999px;background:#5F735B;color:#FCFAF6;font-size:11.5px;font-weight:700;line-height:24px;text-align:center;font-variant-numeric:tabular-nums}.ds-count-low{background:#F5ECD9;color:#8A6424}"
+    },
+    {
+      "name": "Stock Badges",
+      "kind": "chip",
+      "refersTo": "stock-badge-ok",
+      "description": "Per-variant stock pills: normal, low, out.",
+      "html": "<div class=\"ds-row\"><span class=\"ds-stock ds-ok\"><i></i>8 un.</span><span class=\"ds-stock ds-low\"><i></i>1 un.</span><span class=\"ds-stock ds-out\"><i></i>Sem estoque</span></div>",
+      "css": ".ds-row{display:flex;gap:8px}.ds-stock{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:9999px;font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}.ds-stock i{width:6px;height:6px;border-radius:9999px}.ds-ok{background:#EEF2EA;color:#5F735B}.ds-ok i{background:#87977C}.ds-low{background:#F5ECD9;color:#8A6424}.ds-low i{background:#C69B4A}.ds-out{background:#F6E6E1;color:#9A4A3D}.ds-out i{background:#9A4A3D}"
+    },
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Paper panel with hairline, whisper shadow and a Cormorant title.",
+      "html": "<section class=\"ds-panel\"><h2>Estoque baixo</h2><p>Conjunto Saia e Top</p><small>Preto · G · SKU CSE-PRE-G</small></section>",
+      "css": ".ds-panel{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;width:320px;padding:24px;border:1px solid #E7DFD2;border-radius:25.2px;background:#FFFDF9;color:#171A18;box-shadow:0 1px 2px rgb(23 26 24/.04),0 12px 32px -18px rgb(23 26 24/.16);transition:box-shadow .3s}.ds-panel:hover{box-shadow:0 2px 4px rgb(23 26 24/.05),0 22px 44px -22px rgb(23 26 24/.28)}.ds-panel h2{font-family:var(--font-cormorant,'Cormorant Garamond'),'Times New Roman',serif;margin:0 0 12px;font-size:22.4px;font-weight:600;line-height:1.25}.ds-panel p{margin:0;font-size:15px;font-weight:500}.ds-panel small{color:#5F625E;font-size:12px}"
+    },
+    {
+      "name": "Payment Tile",
+      "kind": "custom",
+      "refersTo": "payment-tile-selected",
+      "description": "PDV radio tile; selected gets a 2px olive border and sage-mist ground.",
+      "html": "<button class=\"ds-pay\" role=\"radio\" aria-checked=\"true\"><svg width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"5\" height=\"5\" x=\"3\" y=\"3\" rx=\"1\"/><rect width=\"5\" height=\"5\" x=\"16\" y=\"3\" rx=\"1\"/><rect width=\"5\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\"/><path d=\"M21 16h-3a2 2 0 0 0-2 2v3\"/><path d=\"M21 21v.01\"/><path d=\"M12 7v3a2 2 0 0 1-2 2H7\"/><path d=\"M3 12h.01\"/><path d=\"M12 3h.01\"/><path d=\"M12 16v.01\"/><path d=\"M16 12h1\"/><path d=\"M21 12v.01\"/><path d=\"M12 21v-1\"/></svg><span><b>Pix</b><small>Aprovação imediata</small></span><i></i></button>",
+      "css": ".ds-pay{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;position:relative;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:8px;width:128px;min-height:104px;padding:14px;border:2px solid #5F735B;border-radius:25.2px;background:#EEF2EA;color:#5F735B;text-align:left;cursor:pointer}.ds-pay b{display:block;color:#171A18;font-size:16px;font-weight:600}.ds-pay small{display:block;color:#5F625E;font-size:12px}.ds-pay i{position:absolute;top:10px;right:10px;width:20px;height:20px;box-sizing:border-box;border:2px solid #5F735B;border-radius:9999px;background:radial-gradient(circle,#5F735B 45%,transparent 50%)}.ds-pay:hover{border-color:#4A5B47}.ds-pay:focus-visible{outline:2px solid #87977C;outline-offset:2px}"
+    },
+    {
+      "name": "Shop-Window Arch",
+      "kind": "custom",
+      "refersTo": "category-card",
+      "description": "Hero arch with a fine-line placeholder and a price tag hung on a gold thread.",
+      "html": "<a class=\"ds-arch\" href=\"#\"><div class=\"ds-arch-frame\"><svg viewBox=\"0 0 60 90\" width=\"70\" fill=\"none\" stroke=\"#171A18\" stroke-width=\"1\" aria-hidden=\"true\"><path d=\"M22 10h16v12H22z\" fill=\"#E8C1B8\"/><path d=\"M20 22h20l8 50H12z\" fill=\"#E8C1B8\"/><path d=\"M26 22l-4 50M34 22l4 50M30 22v50\"/></svg></div><span class=\"ds-tag\"><small>Conjunto Alfaiataria</small><b>R$ 109,90</b></span></a>",
+      "css": ".ds-arch{position:relative;display:block;width:160px;padding-bottom:36px;text-decoration:none}.ds-arch-frame{display:flex;align-items:center;justify-content:center;aspect-ratio:3/4.6;border-radius:9999px 9999px 28px 28px;background:#DCE4D6;box-shadow:0 2px 4px rgb(23 26 24/.05),0 22px 44px -22px rgb(23 26 24/.28),0 0 0 1px rgb(255 255 255/.6);transition:transform .7s cubic-bezier(.16,1,.3,1)}.ds-arch:hover .ds-arch-frame,.ds-arch:focus-visible .ds-arch-frame{transform:translateY(-6px)}.ds-tag{font-family:var(--font-manrope,Manrope),ui-sans-serif,system-ui,sans-serif;position:absolute;bottom:0;left:12%;display:flex;flex-direction:column;min-width:120px;padding:8px 12px;border:1px solid #E7DFD2;border-radius:14px;background:#FFFDF9;box-shadow:0 1px 2px rgb(23 26 24/.04),0 12px 32px -18px rgb(23 26 24/.16);transform-origin:top;transform:rotate(-5deg);transition:transform .7s cubic-bezier(.34,1.56,.64,1)}.ds-tag::before{content:\"\";position:absolute;top:-20px;left:24px;width:1px;height:20px;background:#C69B4A}.ds-arch:hover .ds-tag,.ds-arch:focus-visible .ds-tag{transform:rotate(3deg)}.ds-tag small{color:#5F625E;font-size:11.5px}.ds-tag b{color:#171A18;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}.ds-arch:focus-visible{outline:2px solid #87977C;outline-offset:4px;border-radius:12px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Boutique Window",
+    "overview": "Use Gazzeta is a small Brazilian boutique's own shop window, lookbook and back room in one system. The store is a window dressed in sage, creme and rosé: editorial Cormorant headlines, one flourish of script on \"brilhar\", products standing under arches with price tags hung from a gold thread. The admin and PDV are the same boutique after hours: creme sidebar, off-white paper panels, beige hairlines, olive hands doing the work, Manrope everywhere a number or a task lives.\n\nThe palette is owner-pinned and low-chroma by nature; warmth comes from layered creams (off-white ground, paper cards, linen and cream fields) rather than from saturated color. Olive is the only color that acts; sage frames; rosé and bege tint category fields; gold is jewelry. Depth is a whisper, corners are generous, and every surface stays calm enough that a variant line (cor, tamanho, tom, volume) is always the most legible thing in view.\n\nThere are no product photos yet by owner decision, so the placeholder is part of the system: a tinted field with a fine-line drawing of the category and an inset white frame. It is designed to be replaced by photography without changing anything around it. The world refuses tech, neon, gamer, generic corporate and default SaaS blue.",
+    "keyCharacteristics": [
+      "Sage band header over off-white grounds; creme sidebar in the back office; olive for every primary action.",
+      "Cormorant Garamond for titles and display money, Manrope for interface and data, Allura for one word only.",
+      "Generous rounding (14 to 31px) with pills for commerce calls to action and full arches in the shop window.",
+      "Two whisper shadows, beige hairlines, tonal layering between four near-white creams.",
+      "Category-tinted fields with fine-line drawings stand in for photography."
+    ],
+    "rules": [
+      {
+        "name": "The Gold Thread Rule",
+        "body": "Gold is jewelry: threads, rings, a sparkle, a count bubble, a dot. As a fill it appears only on the gold button, at most once per screen. Gold that must be read is always gold-ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Olive Acts Rule",
+        "body": "Olive is the only color that invites a tap. Sage frames, rosé warns, gold decorates; none of them carries a primary action.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stone-Ink Rule",
+        "body": "Secondary text is stone-ink. The owner's cinza (stone) sits near 4:1 on off-white and is kept for dots and strikethroughs, never for reading text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sage Band Rule",
+        "body": "Offwhite on sage is only about 3:1, so the sage band carries the wordmark, 44px icon buttons and the paper search pill, never small text set directly on sage.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Word Rule",
+        "body": "Allura sets \"brilhar\" and nothing else.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Kinds of Money Rule",
+        "body": "Money the customer or seller looks at as a total (PDV line prices, Total da venda) may be set in Cormorant 600 tabular at 1.35rem and up; money in lists, tables, cards and stat tiles is Manrope tabular.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sans Does the Work Rule",
+        "body": "Admin and PDV body, forms, tables and navigation are Manrope; Cormorant is reserved for titles and display totals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Whisper Rule",
+        "body": "Two shadows only, both soft and ink-tinted with negative spread. Nothing hard, nothing offset, nothing colored except the olive seat under olive actions.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use olive for every primary action and olive-deep for its hover.",
+      "Do set secondary text in stone-ink and reserve stone for dots and strikethroughs.",
+      "Do tint placeholders by category field and fine-line drawing until real photos exist; keep the inset white frame.",
+      "Do name the variant (cor, tamanho, tom, volume) on every cart line, stock row and alert, in stone-ink beneath a title.",
+      "Do keep shadows to Whisper at rest and Lift on hover or for floating elements.",
+      "Do keep counter and scanner touch targets at 44px or larger.",
+      "Do respect reduced motion: the arch rise, pop-in and scan line collapse to near-zero duration."
+    ],
+    "donts": [
+      "Don't use gold as a surface beyond the single gold button per screen, or set readable text in raw gold.",
+      "Don't set small text directly on the sage band.",
+      "Don't use Allura for anything but \"brilhar\".",
+      "Don't introduce saturated blues, neon or tech gradients; the world is tech-free and default-SaaS-free.",
+      "Don't draw star ratings, review counts or customer-number badges; nothing in the system represents them.",
+      "Don't use hard or offset shadows, or colored glows beyond the olive seat and the scanner's green line.",
+      "Don't use brand sage or olive steps as categorical chart colors; use the validated status set."
+    ]
+  }
+}

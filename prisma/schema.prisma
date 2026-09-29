@@ -1,0 +1,505 @@
+// Use Gazzeta — um único banco para Loja, Painel e PDV.
+//
+// Regra central:
+//   Product        = modelo (ex.: Vestido Frente Única)
+//   ProductVariant = item físico vendável (ex.: Amarelo / M)
+//   Código de barras, estoque, vendas e pedidos SEMPRE apontam para a variante.
+//   O estoque total do produto nunca é salvo: é a soma das variantes.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─────────────────────────────────────────────── enums
+
+enum UserRole {
+  ADMIN
+  MANAGER
+  SELLER
+  STOCK
+}
+
+// Define quais atributos de variante o cadastro mostra para a categoria.
+enum VariantKind {
+  APPAREL // cor + tamanho
+  BEAUTY // tom / cor / número / volume
+  FRAGRANCE // volume
+  ACCESSORY // cor
+  OTHER // padrão
+}
+
+enum ProductBadge {
+  MAIS_VENDIDO
+  NOVIDADE
+  OFERTA
+  TENDENCIA
+  FAVORITO
+  ULTIMAS_PECAS
+}
+
+enum OrderStatus {
+  AGUARDANDO_PAGAMENTO
+  PAGO
+  EM_SEPARACAO
+  ENVIADO
+  ENTREGUE
+  CANCELADO
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  REFUNDED
+  CANCELED
+}
+
+enum SaleStatus {
+  COMPLETED
+  CANCELED
+}
+
+enum PaymentMethod {
+  PIX
+  DINHEIRO
+  CREDITO
+  DEBITO
+  OUTROS
+}
+
+enum InventoryMovementType {
+  ENTRADA
+  VENDA_PDV
+  VENDA_ONLINE
+  AJUSTE
+  DEVOLUCAO
+  CANCELAMENTO
+  PERDA
+}
+
+enum CouponType {
+  PERCENTUAL
+  VALOR_FIXO
+}
+
+enum ShippingMethod {
+  ENTREGA
+  RETIRADA
+}
+
+// ─────────────────────────────────────────────── loja e usuários
+
+model Store {
+  id                    String   @id @default(cuid())
+  name                  String
+  slug                  String   @unique
+  logoUrl               String?  @map("logo_url")
+  heroImageUrl          String?  @map("hero_image_url")
+  phone                 String?
+  whatsapp              String?
+  email                 String?
+  instagram             String?
+  address               String?
+  shippingFlatRate      Decimal  @default(0) @map("shipping_flat_rate") @db.Decimal(10, 2)
+  freeShippingThreshold Decimal? @map("free_shipping_threshold") @db.Decimal(10, 2)
+  maxInstallments       Int      @default(6) @map("max_installments")
+  minInstallmentValue   Decimal  @default(20) @map("min_installment_value") @db.Decimal(10, 2)
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  users              User[]
+  categories         Category[]
+  products           Product[]
+  customers          Customer[]
+  orders             Order[]
+  sales              Sale[]
+  inventoryMovements InventoryMovement[]
+  coupons            Coupon[]
+
+  @@map("stores")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  storeId      String   @map("store_id")
+  name         String
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  role         UserRole @default(ADMIN)
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  store              Store               @relation(fields: [storeId], references: [id])
+  sales              Sale[]
+  inventoryMovements InventoryMovement[]
+
+  @@index([storeId])
+  @@map("users")
+}
+
+// ─────────────────────────────────────────────── catálogo
+
+model Category {
+  id          String      @id @default(cuid())
+  storeId     String      @map("store_id")
+  name        String
+  slug        String
+  description String?
+  tagline     String?
+  variantKind VariantKind @default(OTHER) @map("variant_kind")
+  position    Int         @default(0)
+  active      Boolean     @default(true)
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
+  store    Store     @relation(fields: [storeId], references: [id])
+  products Product[]
+
+  @@unique([storeId, slug])
+  @@index([storeId])
+  @@map("categories")
+}
+
+model Product {
+  id               String        @id @default(cuid())
+  storeId          String        @map("store_id")
+  categoryId       String        @map("category_id")
+  name             String
+  slug             String
+  description      String?
+  brand            String?
+  basePrice        Decimal?      @map("base_price") @db.Decimal(10, 2)
+  promotionalPrice Decimal?      @map("promotional_price") @db.Decimal(10, 2)
+  active           Boolean       @default(true)
+  featured         Boolean       @default(false)
+  newProduct       Boolean       @default(false) @map("new_product")
+  onSale           Boolean       @default(false) @map("on_sale")
+  badge            ProductBadge?
+  seoTitle         String?       @map("seo_title")
+  seoDescription   String?       @map("seo_description")
+  createdAt        DateTime      @default(now()) @map("created_at")
+  updatedAt        DateTime      @updatedAt @map("updated_at")
+
+  store              Store               @relation(fields: [storeId], references: [id])
+  category           Category            @relation(fields: [categoryId], references: [id])
+  variants           ProductVariant[]
+  images             ProductImage[]
+  orderItems         OrderItem[]
+  saleItems          SaleItem[]
+  inventoryMovements InventoryMovement[]
+
+  @@unique([storeId, slug])
+  @@index([storeId])
+  @@index([categoryId])
+  @@index([createdAt])
+  @@map("products")
+}
+
+model ProductVariant {
+  id               String   @id @default(cuid())
+  productId        String   @map("product_id")
+  sku              String   @unique
+  barcode          String?  @unique
+  color            String?
+  colorHex         String?  @map("color_hex")
+  size             String?
+  tone             String?
+  volume           String?
+  costPrice        Decimal  @default(0) @map("cost_price") @db.Decimal(10, 2)
+  salePrice        Decimal  @map("sale_price") @db.Decimal(10, 2)
+  promotionalPrice Decimal? @map("promotional_price") @db.Decimal(10, 2)
+  stock            Int      @default(0)
+  minimumStock     Int      @default(1) @map("minimum_stock")
+  position         Int      @default(0)
+  active           Boolean  @default(true)
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  product            Product             @relation(fields: [productId], references: [id], onDelete: Cascade)
+  images             ProductImage[]
+  orderItems         OrderItem[]
+  saleItems          SaleItem[]
+  inventoryMovements InventoryMovement[]
+
+  @@index([productId])
+  @@map("product_variants")
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String  @map("product_id")
+  variantId String? @map("variant_id")
+  url       String
+  altText   String? @map("alt_text")
+  position  Int     @default(0)
+  isPrimary Boolean @default(false) @map("is_primary")
+
+  product Product         @relation(fields: [productId], references: [id], onDelete: Cascade)
+  variant ProductVariant? @relation(fields: [variantId], references: [id], onDelete: SetNull)
+
+  @@index([productId])
+  @@map("product_images")
+}
+
+// ─────────────────────────────────────────────── clientes
+
+model Customer {
+  id        String   @id @default(cuid())
+  storeId   String   @map("store_id")
+  name      String
+  email     String?
+  phone     String?
+  whatsapp  String?
+  cpf       String?
+  notes     String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  store        Store         @relation(fields: [storeId], references: [id])
+  addresses    Address[]
+  orders       Order[]
+  sales        Sale[]
+  couponUsages CouponUsage[]
+
+  @@unique([storeId, email])
+  @@index([storeId])
+  @@index([phone])
+  @@map("customers")
+}
+
+model Address {
+  id         String   @id @default(cuid())
+  customerId String   @map("customer_id")
+  zipCode    String   @map("zip_code")
+  street     String
+  number     String
+  complement String?
+  district   String?
+  city       String
+  state      String
+  isDefault  Boolean  @default(false) @map("is_default")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  orders   Order[]
+
+  @@index([customerId])
+  @@map("addresses")
+}
+
+// ─────────────────────────────────────────────── pedidos online
+
+model Order {
+  id             String         @id @default(cuid())
+  number         Int            @unique @default(autoincrement())
+  storeId        String         @map("store_id")
+  customerId     String         @map("customer_id")
+  addressId      String?        @map("address_id")
+  couponId       String?        @map("coupon_id")
+  shippingMethod ShippingMethod @default(ENTREGA) @map("shipping_method")
+  subtotal       Decimal        @db.Decimal(10, 2)
+  discount       Decimal        @default(0) @db.Decimal(10, 2)
+  shipping       Decimal        @default(0) @db.Decimal(10, 2)
+  total          Decimal        @db.Decimal(10, 2)
+  paymentMethod  PaymentMethod  @default(PIX) @map("payment_method")
+  paymentStatus  PaymentStatus  @default(PENDING) @map("payment_status")
+  orderStatus    OrderStatus    @default(AGUARDANDO_PAGAMENTO) @map("order_status")
+  notes          String?
+  createdAt      DateTime       @default(now()) @map("created_at")
+  updatedAt      DateTime       @updatedAt @map("updated_at")
+
+  store        Store         @relation(fields: [storeId], references: [id])
+  customer     Customer      @relation(fields: [customerId], references: [id])
+  address      Address?      @relation(fields: [addressId], references: [id])
+  coupon       Coupon?       @relation(fields: [couponId], references: [id])
+  items        OrderItem[]
+  payments     Payment[]
+  couponUsages CouponUsage[]
+
+  @@index([storeId])
+  @@index([customerId])
+  @@index([createdAt])
+  @@index([orderStatus])
+  @@map("orders")
+}
+
+model OrderItem {
+  id           String  @id @default(cuid())
+  orderId      String  @map("order_id")
+  productId    String  @map("product_id")
+  variantId    String  @map("variant_id")
+  productName  String  @map("product_name")
+  variantLabel String  @map("variant_label")
+  quantity     Int
+  unitPrice    Decimal @map("unit_price") @db.Decimal(10, 2)
+  costPrice    Decimal @default(0) @map("cost_price") @db.Decimal(10, 2)
+  subtotal     Decimal @db.Decimal(10, 2)
+
+  order   Order          @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product Product        @relation(fields: [productId], references: [id])
+  variant ProductVariant @relation(fields: [variantId], references: [id])
+
+  @@index([orderId])
+  @@index([variantId])
+  @@map("order_items")
+}
+
+// ─────────────────────────────────────────────── vendas presenciais (PDV)
+
+model Sale {
+  id             String        @id @default(cuid())
+  number         Int           @unique @default(autoincrement())
+  storeId        String        @map("store_id")
+  customerId     String?       @map("customer_id")
+  userId         String?       @map("user_id")
+  couponId       String?       @map("coupon_id")
+  subtotal       Decimal       @db.Decimal(10, 2)
+  discount       Decimal       @default(0) @db.Decimal(10, 2)
+  discountReason String?       @map("discount_reason")
+  total          Decimal       @db.Decimal(10, 2)
+  paymentStatus  PaymentStatus @default(PAID) @map("payment_status")
+  status         SaleStatus    @default(COMPLETED)
+  canceledAt     DateTime?     @map("canceled_at")
+  createdAt      DateTime      @default(now()) @map("created_at")
+
+  store        Store         @relation(fields: [storeId], references: [id])
+  customer     Customer?     @relation(fields: [customerId], references: [id])
+  user         User?         @relation(fields: [userId], references: [id])
+  coupon       Coupon?       @relation(fields: [couponId], references: [id])
+  items        SaleItem[]
+  payments     Payment[]
+  couponUsages CouponUsage[]
+
+  @@index([storeId])
+  @@index([customerId])
+  @@index([createdAt])
+  @@map("sales")
+}
+
+model SaleItem {
+  id           String  @id @default(cuid())
+  saleId       String  @map("sale_id")
+  productId    String  @map("product_id")
+  variantId    String  @map("variant_id")
+  productName  String  @map("product_name")
+  variantLabel String  @map("variant_label")
+  quantity     Int
+  unitPrice    Decimal @map("unit_price") @db.Decimal(10, 2)
+  costPrice    Decimal @default(0) @map("cost_price") @db.Decimal(10, 2)
+  subtotal     Decimal @db.Decimal(10, 2)
+
+  sale    Sale           @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  product Product        @relation(fields: [productId], references: [id])
+  variant ProductVariant @relation(fields: [variantId], references: [id])
+
+  @@index([saleId])
+  @@index([variantId])
+  @@map("sale_items")
+}
+
+// Uma venda/pedido pode ter vários pagamentos (Pix + dinheiro + cartão).
+model Payment {
+  id                   String        @id @default(cuid())
+  saleId               String?       @map("sale_id")
+  orderId              String?       @map("order_id")
+  method               PaymentMethod
+  amount               Decimal       @db.Decimal(10, 2)
+  receivedAmount       Decimal?      @map("received_amount") @db.Decimal(10, 2)
+  changeAmount         Decimal?      @map("change_amount") @db.Decimal(10, 2)
+  installments         Int?
+  status               PaymentStatus @default(PAID)
+  transactionReference String?       @map("transaction_reference")
+  createdAt            DateTime      @default(now()) @map("created_at")
+
+  sale  Sale?  @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  order Order? @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([saleId])
+  @@index([orderId])
+  @@index([createdAt])
+  @@map("payments")
+}
+
+// ─────────────────────────────────────────────── estoque
+
+// Nenhuma alteração de estoque acontece sem uma linha aqui.
+model InventoryMovement {
+  id            String                @id @default(cuid())
+  storeId       String                @map("store_id")
+  productId     String                @map("product_id")
+  variantId     String                @map("variant_id")
+  userId        String?               @map("user_id")
+  type          InventoryMovementType
+  quantity      Int // com sinal: +entrada / -saída
+  stockBefore   Int                   @map("stock_before")
+  stockAfter    Int                   @map("stock_after")
+  unitCost      Decimal?              @map("unit_cost") @db.Decimal(10, 2)
+  supplier      String?
+  referenceType String?               @map("reference_type")
+  referenceId   String?               @map("reference_id")
+  reason        String?
+  createdAt     DateTime              @default(now()) @map("created_at")
+
+  store   Store          @relation(fields: [storeId], references: [id])
+  product Product        @relation(fields: [productId], references: [id], onDelete: Cascade)
+  variant ProductVariant @relation(fields: [variantId], references: [id], onDelete: Cascade)
+  user    User?          @relation(fields: [userId], references: [id])
+
+  @@index([storeId])
+  @@index([productId])
+  @@index([variantId])
+  @@index([createdAt])
+  @@index([referenceType, referenceId])
+  @@map("inventory_movements")
+}
+
+// ─────────────────────────────────────────────── cupons
+
+model Coupon {
+  id            String     @id @default(cuid())
+  storeId       String     @map("store_id")
+  code          String
+  description   String?
+  type          CouponType
+  value         Decimal    @db.Decimal(10, 2)
+  minimumAmount Decimal?   @map("minimum_amount") @db.Decimal(10, 2)
+  startsAt      DateTime?  @map("starts_at")
+  endsAt        DateTime?  @map("ends_at")
+  maxUses       Int?       @map("max_uses")
+  usedCount     Int        @default(0) @map("used_count")
+  active        Boolean    @default(true)
+  createdAt     DateTime   @default(now()) @map("created_at")
+  updatedAt     DateTime   @updatedAt @map("updated_at")
+
+  store  Store         @relation(fields: [storeId], references: [id])
+  orders Order[]
+  sales  Sale[]
+  usages CouponUsage[]
+
+  @@unique([storeId, code])
+  @@map("coupons")
+}
+
+model CouponUsage {
+  id         String   @id @default(cuid())
+  couponId   String   @map("coupon_id")
+  orderId    String?  @map("order_id")
+  saleId     String?  @map("sale_id")
+  customerId String?  @map("customer_id")
+  discount   Decimal  @db.Decimal(10, 2)
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  coupon   Coupon    @relation(fields: [couponId], references: [id], onDelete: Cascade)
+  order    Order?    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  sale     Sale?     @relation(fields: [saleId], references: [id], onDelete: Cascade)
+  customer Customer? @relation(fields: [customerId], references: [id])
+
+  @@index([couponId])
+  @@map("coupon_usages")
+}
